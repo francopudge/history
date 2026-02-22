@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOD League Champion Team Parade</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+
     <style>
         /* --- 1. LOADING SCREEN --- */
         #loader {
@@ -50,7 +53,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
             line-height: 1.6;
-            overflow-x: hidden; /* Mencegah scroll horizontal */
+            overflow-x: hidden;
         }
 
         /* Header Responsive */
@@ -145,13 +148,11 @@
             text-transform: uppercase;
         }
 
-        /* Grid Gambar Laptop & HP */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: grid;
-            /* Laptop: 3 kolom, Tablet: 2 kolom, HP: 1 kolom otomatis */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
@@ -187,11 +188,8 @@
             font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
-        /* Khusus Layar Sangat Kecil (HP Kecil) */
         @media (max-width: 350px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
+            .container { grid-template-columns: 1fr; }
             .hero-text { font-size: 1rem; }
         }
     </style>
@@ -240,7 +238,7 @@
     </section>
 
     <footer>
-        &copy; 2026 Generations of Duelist 
+        &copy; 2026 Generations of Duelist
     </footer>
 
     <script>
@@ -273,14 +271,8 @@
                         loader.style.visibility = 'hidden';
                         document.body.style.overflowY = 'auto';
                         
-                        let playPromise = song.play();
-                        if (playPromise !== undefined) {
-                            playPromise.then(() => {
-                                icon.src = "pause.png";
-                            }).catch(error => {
-                                icon.src = "play.png";
-                            });
-                        }
+                        // Lagu tidak diputar otomatis (Hanya pastikan ikon tetap play)
+                        icon.src = "play.png";
                     }, 600);
                 }
             }, 15);
